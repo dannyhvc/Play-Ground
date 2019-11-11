@@ -36,3 +36,9 @@
 *.db
 *.AssemblyInfo.cs
 *.RazorTargetAssemblyInfo.cs
+*.ide
+*.ide-shm
+*.db-shm
+*.db-wal
+*.ide-wal
+*.lock
