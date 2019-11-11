@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="tensor::Math_Transform" Collapsed="true">
+    <Position X="6" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAQAAAIAAAAAAIAEAAAAAAAAAAAAABBAA=</HashCode>
+      <FileName>Math_transform.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetWorks::FeedForward" Collapsed="true">
+    <Position X="1.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>IgBQAAQQIAAAgIEUAUAAAQEQABwIAEAAAAAGAAAAQiA=</HashCode>
+      <FileName>feedforward.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Complex" Collapsed="true">
+    <Position X="3.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAQAACAQAAAAAIAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Complex.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9.75" />
+</ClassDiagram>
