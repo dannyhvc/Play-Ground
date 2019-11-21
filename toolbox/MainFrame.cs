@@ -5,9 +5,9 @@ using System.Threading;
 
 namespace Toolbox
 {
-    class MainFrame
+    internal class MainFrame
     {
-        static HttpListener _httpListener = new HttpListener();
+        private static HttpListener _httpListener = new HttpListener();
 
         public static void start()
         {
@@ -19,7 +19,7 @@ namespace Toolbox
             _responseThread.Start(); // start the response thread
         }
 
-        static void ResponseThread()
+        private static void ResponseThread()
         {
             while (true)
             {
@@ -36,6 +36,5 @@ namespace Toolbox
                 Console.WriteLine("Respone given to a request.");
             }
         }
-
     }
 }

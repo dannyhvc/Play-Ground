@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ArenaML.Model;
+﻿//using ArenaML.Model;
 
 namespace Toolbox
 {
-    class TimePerFare
+    internal class TimePerFare
     {
         // Add input data
         //var input = new ModelInput();

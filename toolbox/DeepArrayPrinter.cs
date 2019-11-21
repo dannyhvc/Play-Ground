@@ -27,10 +27,7 @@ namespace IToolbox
 
             public static void foo()
             {
-
             }
         }//end-method DeepArray
-
     }//end-namespace Combiner
-
 }//end-namespace IToolbox

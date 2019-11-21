@@ -1,8 +1,6 @@
-﻿using System;
+﻿using IToolbox.Combiner;
+using System;
 using System.Diagnostics;
-using IToolbox.Combiner;
-
-
 
 namespace toolbox_unit_testing
 {
@@ -28,16 +26,12 @@ namespace toolbox_unit_testing
             Console.WriteLine($"phase 1 took: {stopwatch.Elapsed}");
         }
 
-
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             //intro
             Console.WriteLine($"<<<Unit_Test Run toolbox>>> {System.DateTime.Now}");
             ut_1();
             Toolbox.MainFrame.start();
         }//end-func Main
-    }//end-class ut_toolbox 
-
+    }//end-class ut_toolbox
 }
-
-
