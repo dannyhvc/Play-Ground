@@ -35,5 +35,7 @@ def cool_print(sstream=""):
 
         
 if __name__ == '__main__': 
-    cool_print(str(input("[Enter a line that you want to matrix print]"
-                         "\n>>> ")))
+    cool_print(str(
+          input("[Enter a line that you want to matrix print]"
+                         "\n>>> ")
+    ))
