@@ -27,11 +27,14 @@ def cool_print(sstream=""):
         for i in range(idx, len(coolLine)):
             coolLine[i] = r.choice(charReadables)
         for indexs in hits: coolLine[indexs] = ' '
-        if idx == len(coolLine): break
+        # prints the product of the cool print
+        if idx == len(coolLine): 
+            print("-->",''.join(coolLine[:]), end="\n")
+            break
         elif coolLine[idx] == sstream[idx]:
-            #coolLine[idx] = ' ' # this is only used to see the shape.
+            # coolLine[idx] = ' ' # this is only used to see the shape.
             idx += 1
-        print(">>>",''.join(coolLine[:]))
+        print("-->",''.join(coolLine[:]), end="\r", flush=True)
 
         
 if __name__ == '__main__': 
