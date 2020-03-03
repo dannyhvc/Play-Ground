@@ -42,3 +42,6 @@
 *.db-wal
 *.ide-wal
 *.lock
+*.yes
+*.config
+*.xslt

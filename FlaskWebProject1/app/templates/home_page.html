@@ -1,0 +1,22 @@
+﻿{% extends 'layout.html'%}
+
+{% block title%}
+Dani Dev
+{%endblock %}
+
+{% block navigation%}
+<nav>
+    <ul>
+        <li><a href="{{url_for('pg_home')}}">LINK</a></li>
+        <li><a href="{{url_for('pg_resume')}}">LINK</a></li>
+        <li><a href="{{url_for('pg_projects')}}">LINK</a></li>
+        <li><a href="{{url_for('pg_contact')}}">LINK</a></li>
+    </ul>
+</nav>
+{% endblock %}
+
+{%block content%}
+<h1>Content</h1>
+
+<p>AaBbCc...YyZz</p>
+{% endblock%}
