@@ -45,6 +45,7 @@ def choose_networkcard():
         choice = int(choice)
     except ValueError as e:
         print('wrong choice,exit now')
+        
         os._exit(1)
     else:
         if isinstance(choice,int) and choice <= len(netcard_info):
