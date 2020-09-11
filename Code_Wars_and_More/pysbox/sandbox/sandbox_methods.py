@@ -36,6 +36,7 @@ def longChuncks(lst, n):
         yield lst[i:i + n]
 
 def shortChuncks(lst, n):
+    """returns successive n-sized chunks from lst."""
     return [lst[i:i+n] for i in range(0, len(lst), n)]
 
 class typename:
