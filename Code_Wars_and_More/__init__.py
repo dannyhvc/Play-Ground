@@ -15,10 +15,12 @@ import pysbox.kata.katas_methods as ktm
 
 def main(*args: str) -> None:
     # sbm.sandycanvas()
-    hcode_e: str = ktm.HammingCode.encode("D A N")
-    hcode_d: str = ktm.HammingCode.decode(hcode_e)
-    #print(hcode_e)
-    print(hcode_d) 
+    # hcode_e: str = ktm.HammingCode.encode("D A N")
+    # hcode_d: str = ktm.HammingCode.decode(hcode_e)
+    # #print(hcode_e)
+    # print(hcode_d) 
+    a = sbm.BinByte(0)
+    print(a)
 
     """
         import requests as _req

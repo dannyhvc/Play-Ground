@@ -9,11 +9,11 @@
 |   Date:   Apr 10, 2019                                                    |
 ##########################################################################"""
 # imports
+from ast import Bytes
 import enum as _enum
+from symtable import Class
 import turtle as _turtle
-
-
-from colorama import (Fore, Back, Style, init); init()
+from colorama import (Fore, Back, Style, init)
 
 def findAll(l: list, val: object) -> list:
     return [i for i in range(len(l)) if l[i] == val]
@@ -39,6 +39,15 @@ def shortChuncks(lst, n):
     """returns successive n-sized chunks from lst."""
     return [lst[i:i+n] for i in range(0, len(lst), n)]
 
+def calltracker(func):
+    import functools as __functools
+    @__functools.wraps(func)
+    def wrapper(*args):
+        wrapper.has_been_called = True
+        return func(*args)
+    wrapper.has_been_called = False
+    return wrapper
+    
 class typename:
     def __init__(self, type_alias: str = 'T'):
         self.__typeAlias = type_alias
@@ -83,6 +92,40 @@ class template(typename):
             raise TypeError("parameter cannot be a string !!") 
         else: 
             return self.function(*params) 
+
+
+class BinByte(int):
+    from math import floor as __floor
+    #init
+    def __init__(self, num_value: (int or str) = "5" or 5):
+        # feilds
+        self.__binary_rep = list("{0:b}".format(num_value))
+        self.__data: list = []
+        self.toBin()
+
+    def toBin(self): # TODO: COMMENT THE FUNCTION
+        # finding length of bits
+        if (cbl_len := len(self.__binary_rep)) % 8 != 0:
+            cbl_needed = 8 - cbl_len 
+            #constant time loop
+            for i in range(cbl_needed): 
+                self.__binary_rep.insert(0, R"0")
+            for _ in shortChuncks(self.__binary_rep, 8):
+                self.__data.append("{} ".format("".join(_)))
+        else:
+            for i in shortChuncks(self.__binary_rep, 8):
+                self.__data.append("{} ".format("".join(i)))
+    
+    @staticmethod 
+    def bytes_mat(raw_string_rep):
+        ...
+
+    @property
+    def data(self): return self.__data
+
+    def __str__(self):
+        return " ".join(self.__data)
+
 
 
 class stack():
@@ -172,7 +215,6 @@ def sandycanvas():
 ########################################################################"""
 from html.parser import HTMLParser as _HTMLParser
 from html.entities import name2codepoint as _name2codepoint
-import os as _os
 
 class MyHTMLParser(_HTMLParser):
     def handle_starttag(self, tag, attrs):
