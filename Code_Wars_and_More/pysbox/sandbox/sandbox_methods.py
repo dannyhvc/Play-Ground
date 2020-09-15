@@ -9,13 +9,24 @@
 |   Date:   Apr 10, 2019                                                    |
 ##########################################################################"""
 # imports
-from ast import Bytes
 import enum as _enum
+import numpy as _np
 from symtable import Class
 import turtle as _turtle
+import enum as _enum
 from colorama import (Fore, Back, Style, init)
 
+class sign(_enum.Enum):
+    POSITIVE: int = 1
+    NEGATIVE: int = -1
+
 def findAll(l: list, val: object) -> list:
+    """
+    findAll
+    =======
+    `params`::
+    `returns`::
+    """
     return [i for i in range(len(l)) if l[i] == val]
 
 def numberOfOccurence(l: list, val: object) -> int:
@@ -30,16 +41,28 @@ def seive(s):
     yield n
     yield from seive(i for i in s if i%n != 0)
 
-def longChuncks(lst, n):
+def longChuncks(lst, n, direction=sign.POSITIVE):
     """Yield successive n-sized chunks from lst."""
-    for i in range(0, len(lst), n):
-        yield lst[i:i + n]
+    switch = {
+        sign.POSITIVE: (lst[i:len(lst)-1] if i+n > len(lst)-1 else lst[i:i+n] for i in range(0, len(lst), n)),
+        sign.NEGATIVE: (lst[0:i] if i-n < 0 else lst[i-n:i] for i in range(len(lst), 0, -n))
+    }
+    return switch[direction]
 
-def shortChuncks(lst, n):
+def shortChuncks(lst, n, direction=sign.POSITIVE):
     """returns successive n-sized chunks from lst."""
-    return [lst[i:i+n] for i in range(0, len(lst), n)]
+    switch = {
+        sign.POSITIVE: [lst[i:len(lst)-1] if i+n > len(lst)-1 else lst[i:i+n] for i in range(0, len(lst), n)],
+        sign.NEGATIVE: [lst[0:i] if i-n < 0 else lst[i-n:i] for i in range(len(lst), 0, -n)]
+    }
+    return switch[direction]
 
 def calltracker(func):
+    """
+    calltracker
+    ============
+    decorator to analyze when a function has been called
+    """
     import functools as __functools
     @__functools.wraps(func)
     def wrapper(*args):
@@ -101,20 +124,20 @@ class BinByte(int):
         # feilds
         self.__binary_rep = list("{0:b}".format(num_value))
         self.__data: list = []
-        self.toBin()
+        self.toBinary()
 
-    def toBin(self): # TODO: COMMENT THE FUNCTION
+    def toBinary(self): # TODO: COMMENT THE FUNCTION
         # finding length of bits
         if (cbl_len := len(self.__binary_rep)) % 8 != 0:
             cbl_needed = 8 - cbl_len 
             #constant time loop
             for i in range(cbl_needed): 
                 self.__binary_rep.insert(0, R"0")
-            for _ in shortChuncks(self.__binary_rep, 8):
-                self.__data.append("{} ".format("".join(_)))
+            for _ in shortChuncks(self.__binary_rep, 8, sign.NEGATIVE):
+                self.__data.append("{}".format("".join(_)))
         else:
-            for i in shortChuncks(self.__binary_rep, 8):
-                self.__data.append("{} ".format("".join(i)))
+            for i in shortChuncks(self.__binary_rep, 8, sign.NEGATIVE):
+                self.__data.append("{}".format("".join(i)))
     
     @staticmethod 
     def bytes_mat(raw_string_rep):
@@ -124,7 +147,8 @@ class BinByte(int):
     def data(self): return self.__data
 
     def __str__(self):
-        return " ".join(self.__data)
+        ss = " ".join(self.__data)
+        return ss
 
 
 
