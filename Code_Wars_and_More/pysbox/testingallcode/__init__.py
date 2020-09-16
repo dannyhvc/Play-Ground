@@ -3,7 +3,7 @@ Name: Daniel Herrera
 """
 
 # imports
-import unittest
+import unittest as _ut
 
 # kata mods
 from pysbox.kata.katas_methods import *
@@ -24,7 +24,7 @@ from pysbox.sandbox.sandbox_methods import (
 )
 
 
-class sandbox_methods_ut(unittest.TestCase):
+class sandbox_methods_ut(_ut.TestCase):
     """ This class will test all the methods within the 
         sandbox package including any classes and the sub classes of the
         sandbox package.

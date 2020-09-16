@@ -10,20 +10,17 @@
 ##########################################################################"""
 # importing modules
 from pysbox.testingallcode import *
-import pysbox.sandbox.sandbox_methods as sbm
-import pysbox.kata.katas_methods as ktm
+from pysbox.sandbox import (
+    dh_webscripting as ws,
+    dh_datastructs as ds,
+    sandbox_methods as sbm
+)
+from pysbox import __imports__ as im
 
-def main(*args: str) -> None:
-    # sbm.sandycanvas()
-    # hcode_e: str = ktm.HammingCode.encode("D A N")
-    # hcode_d: str = ktm.HammingCode.decode(hcode_e)
-    # #print(hcode_e)
-    # print(hcode_d)
-    u: list = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
-    print(sbm.shortChuncks(u, 8, sbm.sign.NEGATIVE))
+# import pysbox.kata.katas_methods as ktm
 
-    for element in sbm.longChuncks(u, 8, sbm.sign.NEGATIVE):
-        print(element)
+def main() -> None:
+    ...
 
 # main method
 if __name__ == "__main__":
